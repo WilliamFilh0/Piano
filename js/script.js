@@ -2,6 +2,7 @@ const keys = document.querySelectorAll('.key');
 
 const checkbox = document.querySelector('.checkbox__keys');
 const switcher = document.querySelector('.switcher');
+const keysSection = document.querySelector('.piano__keys');
 
 const playNote = (note) => {
 const audio = new Audio(`../notes/${note}.wav`);
@@ -39,9 +40,10 @@ checkbox.addEventListener('change', ({target}) =>{
 
   if(target.checked){
     switcher.classList.add('switcher--active');
+    keysSection.classList.remove('disabled-keys');
     return;
   }
 
   switcher.classList.remove('switcher--active');
-
+  keysSection.classList.add('disabled-keys');
 });
